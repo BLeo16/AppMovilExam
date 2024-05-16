@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovilExam.Pages.UserView.UserCreatePage"
+             Title="UserCreatePage">
+    <ContentPage.Resources>
+
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="Margin" Value="0,10" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="0,20,0,0" />
+            <Setter Property="BackgroundColor" Value="DodgerBlue" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+    </ContentPage.Resources>
+    <VerticalStackLayout Padding="20">
+        <Button x:Name="btnBack" Text="Back" Clicked="btnBack_Clicked" />
+
+        <Label Text="Create" FontSize="Large" HorizontalOptions="Center" />
+
+        <Label Text="Username" />
+        <Entry x:Name="txtUsername" Placeholder="Username" />
+
+        <Label Text="Password" />
+        <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True"/>
+
+        <Button x:Name="btnCreate" Text="Create" Clicked="btnCreate_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppMovilExam.Pages.UserView.UserListPage"
+             Title="UserListPage">
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="0,10" />
+            <Setter Property="BackgroundColor" Value="DodgerBlue" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style TargetType="BoxView">
+            <Setter Property="HeightRequest" Value="1" />
+            <Setter Property="Color" Value="LightGray" />
+            <Setter Property="Margin" Value="0,10" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Buttons row: Back and Create -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Row="0" Margin="0,10,0,0">
+                <Button x:Name="btnBack" Text="Back" Clicked="btnBack_Clicked" HorizontalOptions="StartAndExpand" />
+                <Button x:Name="btnCreate" Text="Go to Create" Clicked="btnCreate_Clicked" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+
+            <!-- Search area -->
+            <StackLayout Grid.Row="1" Margin="0,10,0,0">
+                <Label Text="Search user by username" HorizontalOptions="Center" />
+                <Entry x:Name="txtSearch" Placeholder="Enter username" HorizontalOptions="FillAndExpand" />
+                <Button Text="Search" Clicked="BtnSearch_Clicked" HorizontalOptions="Center" />
+            </StackLayout>
+
+            <!-- Search result -->
+            <StackLayout Grid.Row="2" x:Name="userInfoLayout" Margin="0,20,0,0" IsVisible="False">
+                <Label Text="User ID:" />
+                <Label x:Name="lblUserId" />
+                <Label Text="Username:" />
+                <Label x:Name="lblUsername" />
+                <Button Text="Edit" Clicked="BtnEdit_Clicked" HorizontalOptions="Center" />
+                <Button Text="Delete" Clicked="BtnDelete_Clicked" HorizontalOptions="Center" />
+            </StackLayout>
+
+            <!-- Users list -->
+            <ScrollView Grid.Row="3" Margin="0,10,0,10">
+                <StackLayout x:Name="UsersStackLayout" Margin="0,5,0,10">
+                    <!-- This area will be populated dynamically -->
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ScrollView>
+</ContentPage>
