@@ -3,10 +3,67 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="AppMovilExam.Pages.PostView.PostListPage"
              Title="PostListPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.Resources>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="Medium" />
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+        <Style TargetType="Entry">
+            <Setter Property="Margin" Value="0,5" />
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="0,10" />
+            <Setter Property="BackgroundColor" Value="DodgerBlue" />
+            <Setter Property="TextColor" Value="White" />
+        </Style>
+        <Style TargetType="BoxView">
+            <Setter Property="HeightRequest" Value="1" />
+            <Setter Property="Color" Value="LightGray" />
+            <Setter Property="Margin" Value="0,10" />
+        </Style>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <Grid Padding="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <!-- Buttons row: Back and Create -->
+            <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Row="0" Margin="0,10,0,0">
+                <Button x:Name="btnBack" Text="Back" Clicked="btnBack_Clicked" HorizontalOptions="StartAndExpand" />
+                <Button x:Name="btnCreate" Text="Go to Create" Clicked="btnCreate_Clicked" HorizontalOptions="EndAndExpand" />
+            </StackLayout>
+
+            <!-- Search area -->
+            <StackLayout Grid.Row="1" Margin="0,10,0,0">
+                <Label Text="Search post by title" HorizontalOptions="Center" />
+                <Entry x:Name="txtSearch" Placeholder="Enter title" HorizontalOptions="FillAndExpand" />
+                <Button Text="Search" Clicked="BtnSearch_Clicked" HorizontalOptions="Center" />
+            </StackLayout>
+
+            <!-- Search result -->
+            <StackLayout Grid.Row="2" x:Name="postInfoLayout" Margin="0,20,0,0" IsVisible="False">
+                <Label Text="Post ID:" />
+                <Label x:Name="lblPostId" />
+                <Label Text="Title:" />
+                <Label x:Name="lblTitle" />
+                <Label Text="Content:" />
+                <Label x:Name="lblContent" />
+                <Button Text="Edit" Clicked="BtnEdit_Clicked" HorizontalOptions="Center" />
+                <Button Text="Delete" Clicked="BtnDelete_Clicked" HorizontalOptions="Center" />
+            </StackLayout>
+
+            <!-- Posts list -->
+            <ScrollView Grid.Row="3" Margin="0,10,0,10">
+                <StackLayout x:Name="PostsStackLayout" Margin="0,5,0,10">
+                    <!-- This area will be populated dynamically -->
+                </StackLayout>
+            </ScrollView>
+        </Grid>
+    </ScrollView>
 </ContentPage>

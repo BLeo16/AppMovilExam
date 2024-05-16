@@ -11,8 +11,29 @@ public partial class UserEditPage : ContentPage
 	{
 		InitializeComponent();
         UserId = userId;
+        LoadUserData();
     }
 
+    private async void LoadUserData()
+    {
+        try
+        {
+            var user = await Crud<User>.Read_ById(ApiUrl, UserId);
+            if (user != null)
+            {
+                txtUsername.Text = user.username;
+                txtPassword.Text = user.password;
+            }
+            else
+            {
+                await DisplayAlert("Error", "User not found.", "OK");
+            }
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", ex.Message, "OK");
+        }
+    }
     private async void BtnBack_Clicked(object sender, EventArgs e)
     {
         await Navigation.PopAsync();

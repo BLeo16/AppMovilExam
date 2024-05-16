@@ -8,7 +8,7 @@ namespace AppMovilExam.Utilities
 {
     public static class APIConstants
     {
-        public static string ApiUser = "https://apiusersbleo.onrender.com/api/Users";
-        public static string ApiPost = "https://apipostsbleo.onrender.com/api/Posts";
+        public static string ApiUser = "https://apiusers-cmx9.onrender.com/api/Users";
+        public static string ApiPost = "https://apiusers-cmx9.onrender.com/api/Posts";
     }
 }
